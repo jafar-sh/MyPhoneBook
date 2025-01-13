@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PhoneBook {
-    private static ArrayList<String> names = new ArrayList<>();
-    private static ArrayList<String> nunbers = new ArrayList<>();
-
+//    private static ArrayList<String> names = new ArrayList<>();
+//    private static ArrayList<String> nunbers = new ArrayList<>();
+private static ArrayList<Contact> contacts=new ArrayList<>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +19,7 @@ public class PhoneBook {
 
             switch (choice) {
                 case 1:
-                    addContact();
+                    addContact(scanner);
                     break;
                 case 2:
                     printAllContacts();
@@ -44,29 +44,40 @@ public class PhoneBook {
     }
 
     private static void printAllContacts() {
-        if (names.isEmpty()) {
+        if (contacts.isEmpty()) {
             System.out.println("PhoneBook is Empty!");
         } else {
             System.out.println("Print All Contact");
         }
         System.out.println(" All Contacts:");
-        for (int i = 0; i < names.size(); i++) {
-            System.out.println("Name[" + (i + 1) + "]" + ": " + names.get(i));
-            System.out.println("Numberse[" + (i + 1) + "]" + ": " + nunbers.get(i));
-
+        int i=1;
+        for (Contact contact:contacts){
+            System.out.println("Name[" + i  + "]" + ": " + contact.name);
+            System.out.println("Numberse[" + i + "]" + ": " + contact.number);
+            i++;
         }
+//        for (int i = 0; i < contacts.size(); i++) {
+//            System.out.println("Name[" + (i + 1) + "]" + ": " + names.get(i));
+//            System.out.println("Numberse[" + (i + 1) + "]" + ": " + nunbers.get(i));
+//
+//        }
     }
 
-    private static void addContact() {
-        Scanner scanner = new Scanner(System.in);
+    private static void addContact(Scanner scanner) {
+
+        Contact newContact=new Contact();
         System.out.println("Enter Name:");
-        String name = scanner.nextLine();
+
+//        String name = scanner.nextLine();
+        newContact.name=scanner.nextLine();
         System.out.println("Enter Number:");
-        String number = scanner.nextLine();
-        names.add(name);
-        nunbers.add(number);
+//        String number = scanner.nextLine();
+        newContact.number=scanner.nextLine();
+//        names.add(name);
+//        nunbers.add(number);
+        contacts.add(newContact);
         System.out.println("Contact Added Successfuly");
-        scanner.close();
+
     }
 }
 
