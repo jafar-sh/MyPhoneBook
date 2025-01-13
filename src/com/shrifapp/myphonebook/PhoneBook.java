@@ -52,8 +52,8 @@ private static ArrayList<Contact> contacts=new ArrayList<>();
         System.out.println(" All Contacts:");
         int i=1;
         for (Contact contact:contacts){
-            System.out.println("Name[" + i  + "]" + ": " + contact.name);
-            System.out.println("Numberse[" + i + "]" + ": " + contact.number);
+            System.out.println("Name[" + i  + "]" + ": " + contact.getName());
+            System.out.println("Numberse[" + i + "]" + ": " + contact.getNumber());
             i++;
         }
 //        for (int i = 0; i < contacts.size(); i++) {
@@ -69,10 +69,10 @@ private static ArrayList<Contact> contacts=new ArrayList<>();
         System.out.println("Enter Name:");
 
 //        String name = scanner.nextLine();
-        newContact.name=scanner.nextLine();
+        newContact.setName(scanner.nextLine());
         System.out.println("Enter Number:");
 //        String number = scanner.nextLine();
-        newContact.number=scanner.nextLine();
+        newContact.setNumber(scanner.nextLine());
 //        names.add(name);
 //        nunbers.add(number);
         contacts.add(newContact);
