@@ -1,13 +1,28 @@
-package com.shrifapp.myphonebook;
+package com.shrifapp.myphonebook.model;
 
-public class Contact {
+public abstract class Contact {
     private String number;
     private String name;
+    private final ContactType type;
+
+    public Contact(String number, String name,ContactType type) {
+        this.number = number;
+        this.name = name;
+        this.type=type;
+    }
+
+
+    public ContactType getType() {
+        return type;
+    }
 
     @Override
     public String toString() {
-        return "Name: "+name + ": Number: "+number;
-
+        return "Contact{" +
+                "number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                '}';
     }
 
     private String capitalizeFirestCharacter(String str){
@@ -23,9 +38,7 @@ public class Contact {
     public void setNumber(String number) {
         this.number = number;
     }
-    public void setNumber(int number) {
-        this.number ="0"+ number;
-    }
+
 
     public String getName() {
         return name;
